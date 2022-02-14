@@ -1,6 +1,6 @@
 # PostgreSQL
 
-> Bug has been resolved - https://github.com/yandex-cloud/terraform-provider-yandex/issues/201
+<img width="994" alt="изображение" src="https://user-images.githubusercontent.com/7482065/153888277-1c2c805c-30dc-427c-b3ab-9808bea397ee.png">
 
 
 The bug is that if `log_min_duration_seconds` is set to `-1` `terraform plan` will show that field changed even if it did not:
