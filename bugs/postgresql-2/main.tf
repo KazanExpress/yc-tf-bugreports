@@ -24,6 +24,12 @@ module "postgres" {
       password = "ownerowner"
     },
      {
+      name        = "useruser2"
+      conn_limit  = 35
+      permissions = [{ "database_name" = "example" }]
+      password = "useruser2"
+    },
+     {
       name        = "useruser1"
       conn_limit  = 35
       permissions = [{ "database_name" = "example" }]

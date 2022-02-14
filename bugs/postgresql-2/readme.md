@@ -5,7 +5,7 @@
 
 ## Шаги к воспроизведению
 
-1. `git checkout `
+1. `git checkout ec0386655f33b78186e03ccf9c5344cee0e999cc`
 2. `terraform init`
 3. Задайте `yc_*` переменные через переменные окружения или `*.tfvars`
 4. Запустите `terraform apply`
