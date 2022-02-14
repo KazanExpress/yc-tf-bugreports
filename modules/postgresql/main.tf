@@ -61,11 +61,6 @@ resource "yandex_mdb_postgresql_cluster" "cluster" {
   }
 }
 
-resource "random_password" "user_passwords" {
-  count  = length(var.users)
-  length = var.database_password_length
-}
-
 resource "yandex_vpc_subnet" "a" {
   # folder_id      = var.folder_id
   zone           = var.zone_a
