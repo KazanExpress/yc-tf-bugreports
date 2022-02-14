@@ -6,7 +6,7 @@ variable "name" {
 variable "description" {
   description = "The description of the PostgreSQL cluster."
   type        = string
-  default     = "Single Node PostgreSQL."
+  default     = "Multi-Node PostgreSQL."
 }
 
 variable "postgres_version" {
@@ -15,13 +15,28 @@ variable "postgres_version" {
   description = "PostgreSQL version."
 }
 
-variable "database_config_values" {
-  description = "Database config map database:user"
+variable "databases" {
+  description = "List of databases."
   type = list(object({
-    database   = string
-    username   = string
-    extensions = list(string)
+    name  = string
+    owner = string
+    extensions = list(object({
+      name = string
+    }))
+    lc_collate = string
+    lc_type    = string
+  }))
+}
+
+variable "users" {
+  description = "List of users."
+  type = list(object({
+    name       = string
+    password = string
     conn_limit = number
+    permissions = list(object({
+      database_name = string
+    }))
   }))
 }
 
@@ -52,7 +67,7 @@ variable "disk_type_id" {
 variable "resource_preset_id" {
   description = "The ID of the preset for computational resources available to a PostgreSQL host."
   type        = string
-  default     = "b2.micro"
+  default     = "s3-c2-m8"
 }
 
 variable "environment" {
@@ -61,20 +76,38 @@ variable "environment" {
   default     = "PRODUCTION"
 }
 
-variable "network_name" {
-  description = "The name of the network, to which the PostgreSQL cluster belongs."
-  type        = string
-  default     = "default"
-}
-
-variable "subnet_name" {
-  description = "The name of the subnet, to which the PostgreSQL cluster belongs."
-  type        = string
-  default     = "default-ru-central1-a"
-}
-
 variable "yc_zone" {
   description = "Yandex cloud zone to deploy database."
   type        = string
   default     = "ru-central1-a"
+}
+
+variable "network_id" {
+  description = "The name of the network, to which the PostgreSQL cluster belongs."
+  type        = string
+}
+
+variable "zone_a" {
+  description = "The name of the network, to which the PostgreSQL cluster belongs."
+  type        = string
+}
+
+variable "zone_b" {
+  description = "The name of the network, to which the PostgreSQL cluster belongs."
+  type        = string
+}
+
+variable "cidr_zone_a" {
+  description = "The name of the network, to which the PostgreSQL cluster belongs."
+  type        = list(string)
+}
+
+variable "cidr_zone_b" {
+  description = "The name of the network, to which the PostgreSQL cluster belongs."
+  type        = list(string)
+}
+variable "deletion_protection" {
+  type        = bool
+  default     = false
+  description = "Inhibits deletion of the cluster"
 }

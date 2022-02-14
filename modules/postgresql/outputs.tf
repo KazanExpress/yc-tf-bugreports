@@ -1,13 +1,24 @@
 output "host" {
-  value       = yandex_mdb_postgresql_cluster.cluster.host[0].fqdn
+  value       = "c-${yandex_mdb_postgresql_cluster.cluster.id}.rw.mdb.yandexcloud.net"
   description = "The database host."
+}
+
+output "user_passwords" {
+  value = {
+    for k, v in random_password.user_passwords : var.users[k].name => v.result
+  }
+  description = "The user passwords."
   sensitive   = true
 }
 
-output "password" {
-  value = {
-    for k, v in random_password.password : var.database_config_values[k].username => v.result
-  }
-  description = "The database password."
-  sensitive   = true
+output "cluster_id" {
+  value       = yandex_mdb_postgresql_cluster.cluster.id
+  description = "The cluster id"
+  sensitive   = false
+}
+
+output "master_host" {
+  value       = "c-${yandex_mdb_postgresql_cluster.cluster.id}.rw.mdb.yandexcloud.net"
+  sensitive   = false
+  description = "master host fqdn"
 }

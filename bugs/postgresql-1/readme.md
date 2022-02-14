@@ -1,5 +1,8 @@
 # PostgreSQL
 
+> Bug has been resolved - https://github.com/yandex-cloud/terraform-provider-yandex/issues/201
+
+
 The bug is that if `log_min_duration_seconds` is set to `-1` `terraform plan` will show that field changed even if it did not:
 
 ```hcl
@@ -414,4 +417,3 @@ Terraform will perform the following actions:
 
 Plan: 0 to add, 1 to change, 0 to destroy.
 ```
-
