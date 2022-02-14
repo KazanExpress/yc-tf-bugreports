@@ -11,7 +11,7 @@
 4. Запустите `terraform apply`
 5. Удостоверьтесь что можно подключиться к базе используя любого пользователя:
 <img width="994" alt="изображение" src="https://user-images.githubusercontent.com/7482065/153888277-1c2c805c-30dc-427c-b3ab-9808bea397ee.png">
-6. Запустите `git checkout `. Это поменяет файл `postgresql-2/main.tf` добавив нового пользователя `useruser2` между `owner` и `useruser1`
+6. Запустите `git checkout 70e207bc8fdb4d86da44e35a2380f3cf5488efa4`. Это поменяет файл `postgresql-2/main.tf` добавив нового пользователя `useruser2` между `owner` и `useruser1`
 7. Запустите `terraform plan` и увидите первую проблему: у пользователя `useruser1` меняется `name` и `password` и добавляется новый пользователь с таким же названием `useruser1`.
 <img width="551" alt="изображение" src="https://user-images.githubusercontent.com/7482065/153888715-262b499c-8e90-4f44-bf39-1b8865cd9116.png">
 8. Запустите `terraform apply`:
