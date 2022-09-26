@@ -13,5 +13,5 @@
 
 5. Поправьте версию в provider.tf на 0.80
 6. Запустите `terraform init -upgrade`
-7. Запустите `terraform apply` и получите ошибку
+7. Запустите `terraform apply` и получите ошибку, что кластер не может быть удален из-за флага deletion_protection. Но тут кластер и не должен удаляться. То есть план строится некоректный
 <img width="1144" alt="изображение" src="https://user-images.githubusercontent.com/7482065/192263529-488493ae-b307-4e4d-a875-4cb44a0a393b.png">
