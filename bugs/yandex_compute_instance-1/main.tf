@@ -18,7 +18,7 @@ resource "yandex_compute_instance" "test" {
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.base_image.id
-      size     = 220
+      size     = 200
       type     = "network-ssd"
     }
   }
