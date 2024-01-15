@@ -11,4 +11,8 @@
 3. Запустите `terraform apply` и создайте opensearch cluster
 4. Увеличьте disk_size у node group с именем opensearch-nodes
 
+![image](https://github.com/KazanExpress/yc-tf-bugreports/assets/24591578/129c16f6-4b5c-47e7-a72c-98efd67ae64a)
+
 5. Запустите `terraform plan` и получите план с тем, что node group c именем opensearch-nodes будет пересоздана
+
+![image](https://github.com/KazanExpress/yc-tf-bugreports/assets/24591578/21f2901e-efdc-4817-9f37-a9b5bfa02f64)
